@@ -1,9 +1,9 @@
-import requests
-from datetime import datetime, time, timedelta
-import pandas as pd
-import matplotlib.pyplot as plt
 import os
+from datetime import datetime, time, timedelta
 
+import matplotlib.pyplot as plt
+import pandas as pd
+import requests
 
 # Calculate dates
 today = datetime.now()
