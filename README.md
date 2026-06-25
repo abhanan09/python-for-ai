@@ -25,7 +25,7 @@ A working AI chatbot built using Google's Gemini API (`google-genai` SDK). Cover
 - Making real API calls to an LLM
 - Maintaining conversation memory using a chat session
 
-### `hello.py`
+### `shopping_cart.py`
 An early exercise using functions, dictionaries, and loops — calculates a shopping cart total from a list of items.
 
 ### `get_data.py`
