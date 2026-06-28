@@ -2,14 +2,16 @@
 
 This repo documents my hands-on path into Python, with the long-term goal of building real AI-powered tools (chatbots, content generators, and automation) for businesses and clients.
 
-I'm a beginner, and these projects were built and debugged step by step — some bugs, fixes, and messy bits are part of the learning process, not hidden.
+I'm a beginner, and I've organized this repo into two clear sections so it's obvious what I built myself versus what I followed along with while learning.
 
-## 📁 Projects
+## 📁 `projects/` — Built and debugged by me
+
+These are projects where I wrote the logic myself and worked through real bugs and errors independently (with guidance, not copy-pasted solutions).
 
 ### `calculator.py`
 A command-line calculator. Covers:
-- Basic arithmetic with conditionals (`if`/`elif`/`else`)
-- Error handling with `try`/`except` (e.g. division by zero)
+- Conditionals (`if`/`elif`/`else`)
+- Error handling with `try`/`except` (division by zero)
 - Input validation (re-prompts on invalid operator)
 - Looping until the user chooses to quit
 
@@ -20,27 +22,28 @@ A command-line to-do list manager. Covers:
 - Error handling for invalid task numbers (`IndexError`)
 
 ### `gemini_chatbot.py`
-A working AI chatbot built using Google's Gemini API (`google-genai` SDK). Covers:
-- Securely loading API keys via environment variables (never hardcoded)
-- Making real API calls to an LLM
-- Maintaining conversation memory using a chat session
+A working, business-scoped AI chatbot built using Google's Gemini API (`google-genai` SDK). Covers:
+- Securely loading API keys via environment variables
+- Real API calls to an LLM with conversation memory
+- A custom **system prompt** that scopes the bot to a specific business persona (demoed here as a bakery assistant) — the core technique behind sellable "AI chatbot for your business" tools
+- Graceful error handling for API/server issues
 
-### `shopping_cart.py`
-An early exercise using functions, dictionaries, and loops — calculates a shopping cart total from a list of items.
+### `pandas_practice.py`
+Built from scratch (not following the course) to actually understand `pandas` fundamentals after realizing I could follow instructor code but not yet write my own:
+- Creating and reading DataFrames
+- Column-wide operations without loops
+- Filtering rows by condition (`df[df["column"] == value]`)
 
-### `get_data.py`
-Pulls live weather data for Rawalpindi from the Open-Meteo API, processes it with `pandas`, visualizes it with `matplotlib`, and saves the result to CSV.
-- Output: `weather_chart.png`, `data/rawalpindi_weather.csv`
+## 📁 `learning-exercises/` — Course-guided exercises
 
-### `sales-analysis/`
-A small sales data analysis tool.
-- `analyzer.py` — reads sales data from CSV, calculates totals per item and a grand total
-- `helpers.py` — helper functions for calculations and currency formatting
-- `data/` — input CSV data
-- `output/` — generated results
+These were built while following along with a Python course. I understand the concepts at a guided level but want to be transparent that I didn't write this logic independently (yet).
+
+- **`shopping_cart.py`** — functions, dictionaries, and loops (calculates a cart total)
+- **`get_data.py`** — pulls live weather data via API, processes with `pandas`, visualizes with `matplotlib`
+- **`sales-analysis/`** — sales data analysis using `pandas` (`analyzer.py`, `helpers.py`)
 
 ## 🛠️ Tech Used
 Python · pandas · matplotlib · requests · Google Gemini API (`google-genai`)
 
 ## 🎯 Why this repo exists
-I'm learning Python with the specific goal of building AI tools (chatbots, content automation) that solve real problems for small businesses. This repo is my visible progress log — more projects will be added as I go.
+I'm learning Python with the specific goal of building AI tools (chatbots, content automation) that solve real problems for small businesses. The `projects/` folder is my actual portfolio — proof of what I can build and debug independently. More will be added as I go.
