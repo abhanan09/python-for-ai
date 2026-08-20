@@ -23,5 +23,5 @@ while True:
         break
 
     if attempts >= max_attempts:
-        print(f"Game over! The number was{secret_number}")
+        print(f"Game over! The number was {secret_number}")
         break

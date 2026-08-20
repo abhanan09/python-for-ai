@@ -1,4 +1,5 @@
 import os
+
 from google import genai
 from google.genai import types
 
@@ -24,5 +25,5 @@ while True:
     try:
         response = chat.send_message(user_input)
         print("Bot:", response.text)
-    except Exception as e:
+    except Exception as e: #noqa
         print("Bot: Sorry, I'm having trouble responding right now. Please try again.")
