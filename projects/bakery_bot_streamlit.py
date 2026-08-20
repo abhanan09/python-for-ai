@@ -36,3 +36,4 @@ if user_input:
     response = st.session_state.chat.send_message(user_input)
 
     st.session_state.messages.append({"role" : "assistant" ,"content" : response.text})
+    st.rerun()
