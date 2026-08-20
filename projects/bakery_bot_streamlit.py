@@ -6,7 +6,7 @@ import streamlit as st
 from google import genai
 from google.genai import types
 
-api_key = os.environ.get("GOOGLE_API_KEY")
+api_key = st.secrets["GOOGLE_API_KEY"]
 
 if "client" not in st.session_state:
     st.session_state.client = genai.Client(api_key=api_key)
