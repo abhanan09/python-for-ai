@@ -8,6 +8,11 @@ from google.genai import types
 
 api_key = os.environ.get("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
 
+st.set_page_config(page_title="Sweet Treats Bakery" , page_icon="🧁")
+
+st.title("🧁Sweet Treats Bakery")
+st.caption("Ask me about our menu, hours, or place an order!")
+
 if "client" not in st.session_state:
     st.session_state.client = genai.Client(api_key=api_key)
 
@@ -33,7 +38,12 @@ if user_input:
 
     st.session_state.messages.append({"role": "user" ,"content" : user_input})
 
-    response = st.session_state.chat.send_message(user_input)
+    try:
+        with st.spinner("Thinking..."):
+            response = st.session_state.chat.send_message(user_input)
+        st.session_state.messages.append({"role" : "assistant" ,"content" : response.text})
 
-    st.session_state.messages.append({"role" : "assistant" ,"content" : response.text})
+    except Exception as e: #noqa
+          st.session_state.messages.append({"role" : "assistant" ,"content" : "Sorry! I am having trouble responding right now. Please try again."})
+
     st.rerun()
