@@ -20,9 +20,10 @@ if "chat" not in st.session_state:
     st.session_state.chat = st.session_state.client.chats.create(
         model = "gemini-3.6-flash",
         config = types.GenerateContentConfig(
-            system_instruction = "You are a friendly customer support assistant for 'Sweet Treats Bakery'. Only answer questions about the bakery's products, hours, and orders. Bakery hours are 9 AM to 7 PM, Monday to Saturday. You sell cakes, cupcakes, and pastries. If a customer wants to place an order, tell them to contact the bakery directly via WhatsApp at [WhatsApp number] or by calling [phone number] to finalize their order. If asked anything unrelated to the bakery, politely redirect the conversation back to bakery topics."
-    ),
+            system_instruction = "You are a friendly customer support assistant for 'Sweet Treats Bakery'. Only answer questions about the bakery's products, hours, and orders. Bakery hours are 9 AM to 7 PM, Monday to Saturday. You sell cakes, cupcakes, and pastries. Only if a customer explicitly asks to place an order or buy something specific, tell them to contact the bakery directly via WhatsApp at [WhatsApp number] or by calling [phone number] to finalize their order. Do not mention this contact information unless the customer is actually trying to place an order. If asked anything unrelated to the bakery, politely redirect the conversation back to bakery topics."
 )
+)
+    
 
 if "messages" not in st.session_state:
     st.session_state.messages = []    
