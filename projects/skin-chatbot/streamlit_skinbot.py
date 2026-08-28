@@ -8,11 +8,27 @@ api_key = os.environ.get("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
 
 st.set_page_config(page_title="Skin & Aesthetic clinics" , page_icon="🩺" )
 
+st.markdown("""
+<style>
+h1 {
+    border-bottom: 2px solid #F2C879;
+    padding-bottom: 12px;
+}
+[data-testid="stChatInput"] textarea::placeholder {
+    color: #D6E4E1 !important;
+    opacity: 1 !important;
+}
+[data-testid="stChatInput"] textarea {
+    color: #FFFFFF !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.title("Skin & Aesthetic clinics")
-st.caption("Available 24/7 ; Treatments, pricing, appointments.")
+st.caption("Available 24/7 - Treatments, pricing, appointments.")
 
 if "client" not in st.session_state:
-    st.session_state.client = genai.client(api_key=api_key)
+    st.session_state.Client = genai.Client(api_key=api_key)
 
 
 if "chat" not in st.session_state:
@@ -77,7 +93,7 @@ if user_input:
             st.session_state.messages.append({"role" : "assistant" , "content" : response.text})
 
     except Exception as e: #noqa
-        st.session_state.message.append({"role" : "assistant" , "content" : "Sorry! I am having trouble responding right now. Please try again."})
+        st.session_state.messages.append({"role" : "assistant" , "content" : "Sorry! I am having trouble responding right now. Please try again."})
 
     st.rerun()
 
