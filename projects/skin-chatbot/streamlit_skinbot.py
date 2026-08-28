@@ -33,7 +33,7 @@ if "client" not in st.session_state:
 
 if "chat" not in st.session_state:
 
-    st.session_state.chat = st.session_state.client.chats.create(
+    st.session_state.chat = st.session_state.Client.chats.create(
         model = "gemini-3.6-flash",
         config = types.GenerateContentConfig(
             system_instruction= """
