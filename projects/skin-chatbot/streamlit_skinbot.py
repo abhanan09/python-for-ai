@@ -27,7 +27,7 @@ h1 {
 st.title("Skin & Aesthetic clinics")
 st.caption("Available 24/7 - Treatments, pricing, appointments.")
 
-if "client" not in st.session_state:
+if "Client" not in st.session_state:
     st.session_state.Client = genai.Client(api_key=api_key)
 
 
