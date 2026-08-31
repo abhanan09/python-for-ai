@@ -93,6 +93,7 @@ if user_input:
             st.session_state.messages.append({"role" : "assistant" , "content" : response.text})
 
     except Exception as e: #noqa
+        st.error(f"Debug error: {e}")
         st.session_state.messages.append({"role" : "assistant" , "content" : "Sorry! I am having trouble responding right now. Please try again."})
 
     st.rerun()
