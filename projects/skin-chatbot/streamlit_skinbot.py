@@ -21,6 +21,10 @@ h1 {
 [data-testid="stChatInput"] textarea {
     color: #FFFFFF !important;
 }
+
+[data-testid="stToolbarActions"] {
+    visibility: hidden;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -93,7 +97,6 @@ if user_input:
             st.session_state.messages.append({"role" : "assistant" , "content" : response.text})
 
     except Exception as e: #noqa
-        st.error(f"Debug error: {e}")
         st.session_state.messages.append({"role" : "assistant" , "content" : "Sorry! I am having trouble responding right now. Please try again."})
 
     st.rerun()
