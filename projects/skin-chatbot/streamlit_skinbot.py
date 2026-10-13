@@ -38,7 +38,7 @@ if "Client" not in st.session_state:
 if "chat" not in st.session_state:
 
     st.session_state.chat = st.session_state.Client.chats.create(
-        model = "gemini-3.6-flash",
+        model = "gemini-3.8-flash",
         config = types.GenerateContentConfig(
             system_instruction= """
 You are a friendly, professional AI assistant for a skin & aesthetic clinic. 
